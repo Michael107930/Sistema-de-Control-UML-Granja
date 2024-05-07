@@ -44,7 +44,7 @@ class Granja:
                 cultivo = Cultivo(nombre, tipo, areacultivo, rendimiento)
                 self.Cultivos.append(cultivo)
                 print("El cultivo ha sido agregado.")
-                self.Produccion.append(cultivo.CalcularPC)
+                self.Produccion.append(cultivo.CalcularPC())
             except ValueError:
                 print("Ha ocurrido un error. Favor ingresar valores válidos para el área y el rendimiento.")
         elif elec==2:
@@ -55,7 +55,7 @@ class Granja:
                 peso = float(input("Digite el peso del animal: "))
                 animal = Animal(especie, raza, edad, peso)
                 self.Animales.append(animal)
-                self.Produccion.append(animal.CalcularPA)
+                self.Produccion.append(animal.CalcularPA())
                 print("Animal agregado exitosamente.")
             except ValueError:
                 print("Ha ocurrido un error. Favor ingresar valores válidos para la edad y el peso.")
@@ -87,14 +87,7 @@ class Granja:
             if not encontrado:
                 print(f"No se ha logrado encontrar el animal de especie {especie}.")
     def CalcularProduccionT(self):
-        CantN=len(self.Produccion)
-        i=0
-        while i!=CantN:
-            produccion_total=sum(self.Produccion)
-            i+=1
-        # produccion_cultivos = sum(cultivo.CalcularPC().cant for cultivo in self.Cultivos)
-        # produccion_animales = sum(animal.CalcularPA().cant for animal in self.Animales)
-        # produccion_total = produccion_cultivos + produccion_animales
+        produccion_total=sum(self.Produccion)
         print(f"La produccion total es de: {produccion_total}")
 
 def Menu():
